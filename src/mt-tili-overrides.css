@@ -1,0 +1,122 @@
+/* Targeted visual refinements based on MT-Tili's existing website palette. */
+:root {
+  --blue: #95ab63;
+  --dark: #10222b;
+  --sky: #e2f0d6;
+  --mint: #f6ffe0;
+  --sand: #d9e7bf;
+  --paper: #f6ffe0;
+  --ink: #495139;
+  --muted: #6e7953;
+  --line: #c8d5ad;
+}
+
+body { background: var(--paper); }
+.eyebrow { color: #6e7953; }
+h1 em, h2 em { color: #95ab63; }
+.header { background: var(--paper); }
+.header.over { background: linear-gradient(#10222bb8, transparent); }
+.nav.open { background: var(--dark); }
+.primary { background: var(--blue); border-color: var(--blue); color: var(--dark); }
+.light { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.outline { border-color: #95ab63; }
+
+/* The live MT-Tili background, reused in both prominent page introductions. */
+.hero { background-image: url('/assets/mt-tili-stones.jpg'); background-position: center; }
+.shade { background: linear-gradient(90deg, #10222bc7, #10222b25 72%), linear-gradient(0deg, #10222b80, transparent 58%); }
+.services-hero {
+  position: relative;
+  isolation: isolate;
+  padding: 145px 52px 80px;
+  width: min(1264px, calc(100% - 64px));
+  color: var(--ink);
+  overflow: hidden;
+}
+.services-hero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, #f6ffe0eb 0%, #f6ffe0c7 58%, #f6ffe096 100%), url('/assets/mt-tili-stones.jpg') center / cover;
+}
+.services-hero > div { position: relative; }
+.client-box { background: #f6ffe0eb; border-color: #95ab63; }
+
+.tone-0 { background: #e2f0d6; }
+.tone-1 { background: #c5d99c; }
+.tone-2 { background: #d9e7bf; }
+.card::before { border-color: #95ab6388; }
+.card:hover { box-shadow: 0 17px 40px #49513924; }
+.about, .new-entrepreneur, .contact-info { background: #e2f0d6; }
+.start { background: #d9e7bf; }
+.home-services { padding-top: 88px; padding-bottom: 88px; }
+.home-services .heading { margin-bottom: 28px; }
+.steps span { border-color: #adbd87; }
+.steps b { color: #6e7953; }
+
+/* Let the certification image use its full visual area. */
+.badge { aspect-ratio: auto; width: min(74%, 330px); padding: 0; margin: 0 auto; background: transparent; display: block; }
+.badge img { display: block; width: 100%; max-width: none; height: auto; }
+
+/* Restore the whitespace rhythm after the start-of-collaboration section. */
+.start { margin-bottom: 120px; }
+
+/* Compact CTA copy inside one olive bubble rather than a full-width box. */
+.cta {
+  min-height: 470px;
+  background:
+    radial-gradient(circle at 10% 16%, #95ab63 0 34px, transparent 35px),
+    radial-gradient(circle at 22% 78%, #95ab63 0 16px, transparent 17px),
+    radial-gradient(circle at 39% 11%, #95ab63 0 18px, transparent 19px),
+    radial-gradient(circle at 73% 19%, #95ab63 0 36px, transparent 37px),
+    radial-gradient(circle at 88% 68%, #95ab63 0 27px, transparent 28px),
+    radial-gradient(circle at 61% 85%, #95ab63 0 31px, transparent 32px),
+    var(--paper);
+  color: var(--paper);
+  display: grid;
+  place-content: center;
+}
+.cta::before {
+  display: none;
+  width: 145px;
+  background: var(--blue);
+  border: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 7%;
+  top: 23%;
+  transform: none;
+}
+.cta p { font-size: clamp(2.15rem, 3.35vw, 3.05rem); margin-bottom: 16px; transform: translateY(-32px); }
+.cta button {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 13px 19px;
+  justify-content: center;
+  gap: 9px;
+  transform: translateY(-32px);
+}
+
+footer { background: #95ab63; color: #10222b; }
+.footer-grid p, .footer-grid address, .disclaimer { color: #263329; }
+.footer-grid b { color: #10222b; }
+.disclaimer { border-color: #10222b40; }
+
+@media (max-width: 850px) {
+  .services-hero { width: min(100% - 40px, 680px); padding: 110px 32px 60px; }
+  .start { margin-bottom: 90px; }
+  .badge { width: min(58%, 330px); }
+}
+
+@media (max-width: 580px) {
+  .services-hero { width: calc(100% - 32px); padding: 95px 24px 48px; }
+  .start { margin-bottom: 76px; }
+  .home-services { padding-top: 76px; padding-bottom: 76px; }
+  .cta { min-height: 375px; }
+  .cta::before { width: 92px; left: 5%; top: 24%; transform: none; }
+  .cta p, .cta button { transform: translateY(-24px); }
+  .badge { width: min(66%, 300px); }
+}
